@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMDb Cinema & TV Evolution Explorer (1920–2025)</title>
+  <meta name="description" content="Interactive D3.js visualization exploring movie and TV series ratings, vote distributions, runtimes, and genre trends across cinema history.">
+  <link rel="stylesheet" href="/src/assets/main.css">
+  <link rel="stylesheet" href="/src/assets/components.css">
+</head>
+<body>
+
+  <!-- APP HEADER -->
+  <header class="app-header">
+    <div class="brand-container">
+      <div class="brand-logo">V</div>
+      <div class="brand-title">IMDb Cinema & TV Evolution (1920–2025)</div>
+    </div>
+    
+    <!-- FORMAT MODE SWITCHER TABS -->
+    <div class="format-mode-switcher" role="tablist" aria-label="Format Scope Selection">
+      <button class="mode-tab active" data-format="all" role="tab" aria-selected="true">All Formats</button>
+      <button class="mode-tab" data-format="movie" role="tab" aria-selected="false">Movies Only</button>
+      <button class="mode-tab" data-format="tvSeries" role="tab" aria-selected="false">TV Series Only</button>
+      <button class="mode-tab" data-format="compare" role="tab" aria-selected="false">Side-by-Side Compare</button>
+    </div>
+
+    <div class="header-badges">
+      <span class="badge badge-primary">GitHub Repository</span>
+      <span class="badge">Vite 8.1.5</span>
+      <span class="badge">Deployment Pending</span>
+    </div>
+  </header>
+
+  <!-- APP MAIN LAYOUT CONTAINER -->
+  <div class="app-container">
+
+    <!-- SIDEBAR FILTER CONTROLS -->
+    <aside class="sidebar-panel" aria-label="Control Panel">
+      <div class="card-title">Filter Controls</div>
+
+      <!-- Search Title -->
+      <div class="control-group">
+        <label for="search-input" class="control-label">Search Title</label>
+        <input type="text" id="search-input" class="form-input" placeholder="e.g. Inception, Breaking Bad..." aria-label="Search title by keyword">
+      </div>
+
+      <!-- Sidebar Format Selector -->
+      <div class="control-group">
+        <label for="format-select" class="control-label">Format Scope</label>
+        <select id="format-select" class="form-select" aria-label="Select format scope">
+          <option value="all">All Formats (Movies & TV Series)</option>
+          <option value="movie">Movies Only</option>
+          <option value="tvSeries">TV Series Only</option>
+          <option value="compare">Format Comparison Mode</option>
+        </select>
+      </div>
+
+      <!-- Year Range Slider -->
+      <div class="control-group">
+        <div class="control-label">
+          <span>Start Year</span>
+          <span id="year-val-label" class="control-value">1920 — 2025</span>
+        </div>
+        <div class="range-slider-container">
+          <input type="range" id="year-min-slider" min="1920" max="2025" value="1920" aria-label="Minimum Start Year">
+          <input type="range" id="year-max-slider" min="1920" max="2025" value="2025" aria-label="Maximum Start Year">
+        </div>
+      </div>
+
+      <!-- Minimum Votes Slider -->
+      <div class="control-group">
+        <div class="control-label">
+          <span>Min Vote Volume</span>
+          <span id="votes-val-label" class="control-value">1,000+ votes</span>
+        </div>
+        <input type="range" id="votes-slider" min="1000" max="100000" step="1000" value="1000" aria-label="Minimum Vote Count">
+      </div>
+
+      <!-- Genre Select -->
+      <div class="control-group">
+        <label for="genre-select" class="control-label">Genre Filter</label>
+        <select id="genre-select" class="form-select" aria-label="Filter by Genre">
+          <option value="all">All Genres</option>
+        </select>
+      </div>
+
+      <!-- Genre Era Filter -->
+      <div class="control-group">
+        <label for="era-select" class="control-label">Historical Era</label>
+        <select id="era-select" class="form-select" aria-label="Filter by Era">
+          <option value="all">All Eras (1920–2025)</option>
+          <option value="classical">Classical Era (1920–1970)</option>
+          <option value="modern">Modern Era (1971–2025)</option>
+        </select>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display: flex; gap: 10px; margin-top: auto;">
+        <button id="reset-btn" class="btn btn-outline" style="flex: 1;" aria-label="Reset all filters">Reset Filters</button>
+      </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="main-content">
+
+      <!-- TOP METRICS SUMMARY ROW -->
+      <div class="metrics-row" aria-label="Summary Statistics">
+        <div class="metric-card">
+          <span id="metric-total-titles" class="metric-number">--</span>
+          <span class="metric-label">Filtered Titles</span>
+        </div>
+        <div class="metric-card">
+          <span id="metric-avg-rating" class="metric-number">--</span>
+          <span class="metric-label">Mean Audience Rating</span>
+        </div>
+        <div class="metric-card">
+          <span id="metric-avg-votes" class="metric-number">--</span>
+          <span class="metric-label">Mean Vote Count</span>
+        </div>
+        <div class="metric-card">
+          <span id="metric-year-span" class="metric-number">--</span>
+          <span class="metric-label">Active Year Span</span>
+        </div>
+      </div>
+
+      <!-- DASHBOARD CHARTS GRID -->
+      <div class="dashboard-grid">
+
+        <!-- TEMPORAL TIMELINE / BRUSH CHART WITH METRIC MODES -->
+        <div class="card-panel grid-col-8">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Temporal Cinema Timeline (1920–2025)</div>
+              <div class="card-subtitle">Drag horizontal 1D brush to filter active timeline window</div>
+            </div>
+            <!-- Timeline Metric Mode Switcher -->
+            <div class="button-group" role="group" aria-label="Timeline Metric Switcher">
+              <button class="btn-sm active" data-metric="volume" aria-pressed="true">Release Volume</button>
+              <button class="btn-sm" data-metric="rating" aria-pressed="false">Mean Rating</button>
+              <button class="btn-sm" data-metric="runtime" aria-pressed="false">Mean Runtime</button>
+            </div>
+          </div>
+          <div id="timeline-chart-container" style="width: 100%; height: 260px;"></div>
+        </div>
+
+        <!-- GENRE BREAKDOWN CHART WITH ERA FILTER -->
+        <div class="card-panel grid-col-4">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Top Genre Distribution</div>
+              <div class="card-subtitle">Title counts by primary category</div>
+            </div>
+          </div>
+          <div id="breakdown-chart-container" style="width: 100%; height: 260px;"></div>
+        </div>
+
+        <!-- MAIN RATING VS VOTES MULTIVARIATE SCATTERPLOT -->
+        <div class="card-panel grid-col-12">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Multivariate Rating & Popularity Distribution</div>
+              <div class="card-subtitle">X: Audience Rating (1.0–10.0) | Y: Log Vote Volume | Size: Runtime | Shapes: Circle (Movie) vs Diamond (TV Episode Duration)</div>
+            </div>
+            <div class="button-group" role="group" aria-label="Scatterplot Options">
+              <button id="toggle-shapes-btn" class="btn-sm active" aria-pressed="true">Distinct Shapes</button>
+              <button id="toggle-guides-btn" class="btn-sm" aria-pressed="false">Benchmark Guide</button>
+            </div>
+          </div>
+          <div id="scatterplot-container" style="width: 100%; height: 420px;"></div>
+          <div id="scatterplot-sampling-notice" style="font-size: 11px; color: var(--text-dim); margin-top: 8px; text-align: right; display: none;">
+            * Showing top sampled records for rendering performance. Summary metrics use 100% of filtered data.
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- FLOATING D3 TOOLTIP CONTAINER -->
+  <div id="d3-tooltip" class="d3-tooltip" role="tooltip" aria-hidden="true"></div>
+
+  <!-- DETAILS-ON-DEMAND MODAL DIALOG -->
+  <div id="detail-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div id="modal-title-text" class="modal-title">Movie Title</div>
+        <button id="modal-close-btn" class="modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <div id="modal-body-content">
+        <!-- Injected dynamically by detailModal.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRY SCRIPT -->
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>

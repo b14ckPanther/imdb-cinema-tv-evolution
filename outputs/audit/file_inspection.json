@@ -1,0 +1,450 @@
+{
+  "name.basics.tsv": {
+    "file_name": "name.basics.tsv",
+    "is_compressed": false,
+    "size_bytes": 959606480,
+    "size_mb": 915.15,
+    "size_gb": 0.8937,
+    "missing_value_notation": "\\N",
+    "num_columns": 6,
+    "columns": [
+      "nconst",
+      "primaryName",
+      "birthYear",
+      "deathYear",
+      "primaryProfession",
+      "knownForTitles"
+    ],
+    "inferred_schema": {
+      "nconst": "string",
+      "primaryName": "string",
+      "birthYear": "integer",
+      "deathYear": "integer",
+      "primaryProfession": "string",
+      "knownForTitles": "string"
+    },
+    "sample_rows": [
+      [
+        "nm0000001",
+        "Fred Astaire",
+        "1899",
+        "1987",
+        "actor,miscellaneous,producer",
+        "tt0072308,tt0050419,tt0027125,tt0025164"
+      ],
+      [
+        "nm0000002",
+        "Lauren Bacall",
+        "1924",
+        "2014",
+        "actress,miscellaneous,soundtrack",
+        "tt0037382,tt0075213,tt0038355,tt0117057"
+      ],
+      [
+        "nm0000003",
+        "Brigitte Bardot",
+        "1934",
+        "2025",
+        "actress,music_department,producer",
+        "tt0057345,tt0049189,tt0056404,tt0054452"
+      ],
+      [
+        "nm0000004",
+        "John Belushi",
+        "1949",
+        "1982",
+        "actor,writer,music_department",
+        "tt0072562,tt0077975,tt0080455,tt0078723"
+      ],
+      [
+        "nm0000005",
+        "Ingmar Bergman",
+        "1918",
+        "2007",
+        "writer,director,actor",
+        "tt0050986,tt0083922,tt0069467,tt0050976"
+      ]
+    ]
+  },
+  "title.akas.tsv": {
+    "file_name": "title.akas.tsv",
+    "is_compressed": false,
+    "size_bytes": 2969225875,
+    "size_mb": 2831.67,
+    "size_gb": 2.7653,
+    "missing_value_notation": "\\N",
+    "num_columns": 8,
+    "columns": [
+      "titleId",
+      "ordering",
+      "title",
+      "region",
+      "language",
+      "types",
+      "attributes",
+      "isOriginalTitle"
+    ],
+    "inferred_schema": {
+      "titleId": "string",
+      "ordering": "integer",
+      "title": "string",
+      "region": "string",
+      "language": "string (all nulls in sample)",
+      "types": "string",
+      "attributes": "string",
+      "isOriginalTitle": "integer"
+    },
+    "sample_rows": [
+      [
+        "tt0000001",
+        "1",
+        "Carmencita",
+        "\\N",
+        "\\N",
+        "original",
+        "\\N",
+        "1"
+      ],
+      [
+        "tt0000001",
+        "2",
+        "Carmencita",
+        "DE",
+        "\\N",
+        "\\N",
+        "literal title",
+        "0"
+      ],
+      [
+        "tt0000001",
+        "3",
+        "Carmencita",
+        "US",
+        "\\N",
+        "imdbDisplay",
+        "\\N",
+        "0"
+      ],
+      [
+        "tt0000001",
+        "4",
+        "Carmencita - spanyol t\u00e1nc",
+        "HU",
+        "\\N",
+        "imdbDisplay",
+        "\\N",
+        "0"
+      ],
+      [
+        "tt0000001",
+        "5",
+        "\u039a\u03b1\u03c1\u03bc\u03b5\u03bd\u03c3\u03af\u03c4\u03b1",
+        "GR",
+        "\\N",
+        "imdbDisplay",
+        "\\N",
+        "0"
+      ]
+    ]
+  },
+  "title.basics.tsv": {
+    "file_name": "title.basics.tsv",
+    "is_compressed": false,
+    "size_bytes": 1099639925,
+    "size_mb": 1048.7,
+    "size_gb": 1.0241,
+    "missing_value_notation": "\\N",
+    "num_columns": 9,
+    "columns": [
+      "tconst",
+      "titleType",
+      "primaryTitle",
+      "originalTitle",
+      "isAdult",
+      "startYear",
+      "endYear",
+      "runtimeMinutes",
+      "genres"
+    ],
+    "inferred_schema": {
+      "tconst": "string",
+      "titleType": "string",
+      "primaryTitle": "string",
+      "originalTitle": "string",
+      "isAdult": "integer",
+      "startYear": "integer",
+      "endYear": "string (all nulls in sample)",
+      "runtimeMinutes": "integer",
+      "genres": "string"
+    },
+    "sample_rows": [
+      [
+        "tt0000001",
+        "short",
+        "Carmencita",
+        "Carmencita",
+        "0",
+        "1894",
+        "\\N",
+        "1",
+        "Documentary,Short"
+      ],
+      [
+        "tt0000002",
+        "short",
+        "Le clown et ses chiens",
+        "Le clown et ses chiens",
+        "0",
+        "1892",
+        "\\N",
+        "5",
+        "Animation,Short"
+      ],
+      [
+        "tt0000003",
+        "short",
+        "Poor Pierrot",
+        "Pauvre Pierrot",
+        "0",
+        "1892",
+        "\\N",
+        "5",
+        "Animation,Comedy,Romance"
+      ],
+      [
+        "tt0000004",
+        "short",
+        "Un bon bock",
+        "Un bon bock",
+        "0",
+        "1892",
+        "\\N",
+        "12",
+        "Animation,Short"
+      ],
+      [
+        "tt0000005",
+        "short",
+        "Blacksmith Scene",
+        "Blacksmith Scene",
+        "0",
+        "1893",
+        "\\N",
+        "1",
+        "Short"
+      ]
+    ]
+  },
+  "title.crew.tsv": {
+    "file_name": "title.crew.tsv",
+    "is_compressed": false,
+    "size_bytes": 417723905,
+    "size_mb": 398.37,
+    "size_gb": 0.389,
+    "missing_value_notation": "\\N",
+    "num_columns": 3,
+    "columns": [
+      "tconst",
+      "directors",
+      "writers"
+    ],
+    "inferred_schema": {
+      "tconst": "string",
+      "directors": "string",
+      "writers": "string"
+    },
+    "sample_rows": [
+      [
+        "tt0000001",
+        "nm0005690",
+        "\\N"
+      ],
+      [
+        "tt0000002",
+        "nm0721526",
+        "\\N"
+      ],
+      [
+        "tt0000003",
+        "nm0721526",
+        "nm0721526"
+      ],
+      [
+        "tt0000004",
+        "nm0721526",
+        "\\N"
+      ],
+      [
+        "tt0000005",
+        "nm0005690",
+        "\\N"
+      ]
+    ]
+  },
+  "title.episode.tsv": {
+    "file_name": "title.episode.tsv",
+    "is_compressed": false,
+    "size_bytes": 257459493,
+    "size_mb": 245.53,
+    "size_gb": 0.2398,
+    "missing_value_notation": "\\N",
+    "num_columns": 4,
+    "columns": [
+      "tconst",
+      "parentTconst",
+      "seasonNumber",
+      "episodeNumber"
+    ],
+    "inferred_schema": {
+      "tconst": "string",
+      "parentTconst": "string",
+      "seasonNumber": "integer",
+      "episodeNumber": "integer"
+    },
+    "sample_rows": [
+      [
+        "tt0031458",
+        "tt32857063",
+        "\\N",
+        "\\N"
+      ],
+      [
+        "tt0041951",
+        "tt0041038",
+        "1",
+        "9"
+      ],
+      [
+        "tt0042816",
+        "tt0989125",
+        "1",
+        "17"
+      ],
+      [
+        "tt0042889",
+        "tt0989125",
+        "\\N",
+        "\\N"
+      ],
+      [
+        "tt0043426",
+        "tt0040051",
+        "3",
+        "42"
+      ]
+    ]
+  },
+  "title.principals.tsv": {
+    "file_name": "title.principals.tsv",
+    "is_compressed": false,
+    "size_bytes": 4504528838,
+    "size_mb": 4295.85,
+    "size_gb": 4.1952,
+    "missing_value_notation": "\\N",
+    "num_columns": 6,
+    "columns": [
+      "tconst",
+      "ordering",
+      "nconst",
+      "category",
+      "job",
+      "characters"
+    ],
+    "inferred_schema": {
+      "tconst": "string",
+      "ordering": "integer",
+      "nconst": "string",
+      "category": "string",
+      "job": "string",
+      "characters": "string"
+    },
+    "sample_rows": [
+      [
+        "tt0000001",
+        "1",
+        "nm1588970",
+        "self",
+        "\\N",
+        "[\"Self\"]"
+      ],
+      [
+        "tt0000001",
+        "2",
+        "nm0005690",
+        "director",
+        "\\N",
+        "\\N"
+      ],
+      [
+        "tt0000001",
+        "3",
+        "nm0005690",
+        "producer",
+        "producer",
+        "\\N"
+      ],
+      [
+        "tt0000001",
+        "4",
+        "nm0374658",
+        "cinematographer",
+        "director of photography",
+        "\\N"
+      ],
+      [
+        "tt0000002",
+        "1",
+        "nm0721526",
+        "director",
+        "\\N",
+        "\\N"
+      ]
+    ]
+  },
+  "title.ratings.tsv": {
+    "file_name": "title.ratings.tsv",
+    "is_compressed": false,
+    "size_bytes": 29676539,
+    "size_mb": 28.3,
+    "size_gb": 0.0276,
+    "missing_value_notation": "\\N",
+    "num_columns": 3,
+    "columns": [
+      "tconst",
+      "averageRating",
+      "numVotes"
+    ],
+    "inferred_schema": {
+      "tconst": "string",
+      "averageRating": "float",
+      "numVotes": "integer"
+    },
+    "sample_rows": [
+      [
+        "tt0000001",
+        "5.7",
+        "2220"
+      ],
+      [
+        "tt0000002",
+        "5.4",
+        "323"
+      ],
+      [
+        "tt0000003",
+        "6.4",
+        "2363"
+      ],
+      [
+        "tt0000004",
+        "5.1",
+        "195"
+      ],
+      [
+        "tt0000005",
+        "6.2",
+        "3075"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+====================================================
+     IMDb CANONICAL AUDIT & RECONCILIATION REPORT    
+====================================================
+Generated UTC: 2026-07-28T11:31:14.900871+00:00
+Total Dataset Rows: 212,027,848
+
+TABLE A: FILE INVENTORY
+-----------------------------------------------------------------------------------------
+Filename               | Format       |        Bytes |   Size MB |    Data Rows | Cols
+-----------------------------------------------------------------------------------------
+name.basics.tsv        | uncompressed |  959,606,480 |    915.15 |   15,526,439 |    6
+title.akas.tsv         | uncompressed | 2,969,225,875 |   2831.67 |   58,673,613 |    8
+title.basics.tsv       | uncompressed | 1,099,639,925 |   1048.70 |   12,674,027 |    9
+title.crew.tsv         | uncompressed |  417,723,905 |    398.37 |   12,675,173 |    3
+title.episode.tsv      | uncompressed |  257,459,493 |    245.53 |    9,796,655 |    4
+title.principals.tsv   | uncompressed | 4,504,528,838 |   4295.85 |  100,782,155 |    6
+title.ratings.tsv      | uncompressed |   29,676,539 |     28.30 |    1,699,786 |    3
+-----------------------------------------------------------------------------------------
+TOTAL                  | uncompressed | 10,237,861,055 |   9795.73 |  212,027,848 |
+
+TABLE B: TITLE.BASICS COMPOSITION BY TITLETYPE
+-----------------------------------------------------------------------------------------
+Total title.basics data rows: 12,674,027
+
+  - tvEpisode       :  9,795,762 / 12,674,027 ( 77.29%)
+  - short           :  1,146,546 / 12,674,027 (  9.05%)
+  - movie           :    753,166 / 12,674,027 (  5.94%)
+  - video           :    328,764 / 12,674,027 (  2.59%)
+  - tvSeries        :    302,885 / 12,674,027 (  2.39%)
+  - tvMovie         :    155,515 / 12,674,027 (  1.23%)
+  - tvMiniSeries    :     71,825 / 12,674,027 (  0.57%)
+  - tvSpecial       :     58,808 / 12,674,027 (  0.46%)
+  - videoGame       :     49,720 / 12,674,027 (  0.39%)
+  - tvShort         :     11,035 / 12,674,027 (  0.09%)
+  - tvPilot         :          1 / 12,674,027 (  0.00%)
+
+TABLE C: RATINGS THRESHOLDS MATRIX ACROSS 4 SCOPES
+-----------------------------------------------------------------------------------------
+[All Rated Titles Joined to title.basics]
+  Total Scope Titles: 1,699,783 | Matched Rated Titles: 1,699,783
+    - numVotes_gte_0      :  1,699,783
+    - numVotes_gte_100    :    426,076
+    - numVotes_gte_500    :    167,463
+    - numVotes_gte_1000   :    106,288
+    - numVotes_gte_5000   :     31,320
+    - numVotes_gte_10000  :     17,871
+
+[Movie Only (Joined to title.basics)]
+  Total Scope Titles: 753,166 | Matched Rated Titles: 348,542
+    - numVotes_gte_0      :    348,542
+    - numVotes_gte_100    :    145,949
+    - numVotes_gte_500    :     70,311
+    - numVotes_gte_1000   :     48,808
+    - numVotes_gte_5000   :     18,949
+    - numVotes_gte_10000  :     12,489
+
+[tvSeries Only (Joined to title.basics)]
+  Total Scope Titles: 302,885 | Matched Rated Titles: 113,491
+    - numVotes_gte_0      :    113,491
+    - numVotes_gte_100    :     34,679
+    - numVotes_gte_500    :     14,951
+    - numVotes_gte_1000   :     10,199
+    - numVotes_gte_5000   :      3,848
+    - numVotes_gte_10000  :      2,345
+
+[Movie + tvSeries (Joined to title.basics)]
+  Total Scope Titles: 1,056,051 | Matched Rated Titles: 462,033
+    - numVotes_gte_0      :    462,033
+    - numVotes_gte_100    :    180,628
+    - numVotes_gte_500    :     85,262
+    - numVotes_gte_1000   :     59,007
+    - numVotes_gte_5000   :     22,797
+    - numVotes_gte_10000  :     14,834
+
+TABLE D: JOIN INTEGRITY & RATINGS TERMINOLOGY
+-----------------------------------------------------------------------------------------
+  - title.basics data rows       : 12,674,027 (unique tconsts: 12,674,027, duplicates: 0)
+  - title.ratings file rows      : 1,699,786 (unique tconsts: 1,699,786, duplicates: 0)
+  - Ratings rows matching basics : 1,699,783 / 1,699,786 (99.9998%
+  - Orphan ratings rows          : 3
+  - Basics rows with ratings     : 1,699,783 / 12,674,027 (13.4115%
+
+TITLE.CREW MISMATCH INVESTIGATION:
+  - title.crew total rows      : 12,675,173 (duplicates: 0)
+  - title.basics total rows    : 12,674,027
+  - Net Row Difference         : 1,146
+  - tconsts in crew not basics : 1,160
+  - tconsts in basics not crew : 14
+  - Explanation: title.crew has 0 duplicate tconsts (exactly 1 row per tconst). The net row difference of 1,146 rows (12,675,173 vs 12,674,027) is caused by 1,160 orphan tconst IDs present in title.crew that do not exist in title.basics, offset by 14 tconst IDs present in title.basics that do not exist in title.crew.
+
+TABLE E: VALIDITY FIELDS
+-----------------------------------------------------------------------------------------
+[movie] (Total Scope Rows: 753,166)
+  - startYear valid count    : 639,767 (range: 1894 - 2032)
+  - startYear missing        : 113,399 (15.06%)
+  - runtimeMinutes valid count: 474,911 (range: 1.0 - 51420.0)
+  - runtimeMinutes missing    : 278,255 (36.94%)
+  - genres missing           : 77,966 (10.35%)
+  - averageRating range       : 1.0 - 10.0
+  - numVotes range            : 5 - 3,213,685
+
+[tvSeries] (Total Scope Rows: 302,885)
+  - startYear valid count    : 277,228 (range: 1908 - 2030)
+  - startYear missing        : 25,657 (8.47%)
+  - runtimeMinutes valid count: 111,635 (range: 1.0 - 3692080.0)
+  - runtimeMinutes missing    : 191,250 (63.14%)
+  - genres missing           : 23,955 (7.91%)
+  - averageRating range       : 1.0 - 10.0
+  - numVotes range            : 5 - 2,648,744
+

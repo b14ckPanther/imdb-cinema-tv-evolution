@@ -1,0 +1,12 @@
+{
+  "pipeline_timestamp_utc": "2026-07-28T12:04:10.423182+00:00",
+  "raw_title_basics_rows": 12674027,
+  "raw_title_ratings_rows": 1699786,
+  "vote_threshold": 1000,
+  "final_extracted_titles": 58990,
+  "movies_count": 48791,
+  "tv_series_count": 10199,
+  "genres_count": 27,
+  "titles_json_file_size_mb": 5.15,
+  "output_directory": "/Users/zangeel/Downloads/FInalProject_Visualization/src/data"
+}

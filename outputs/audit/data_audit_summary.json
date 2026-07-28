@@ -1,0 +1,274 @@
+{
+  "basic_stats": {
+    "name.basics.tsv": {
+      "file_name": "name.basics.tsv",
+      "total_rows": 15526439,
+      "missing_counts": {
+        "nconst": 0,
+        "primaryName": 89,
+        "birthYear": 14848073,
+        "deathYear": 15265109,
+        "primaryProfession": 3141758,
+        "knownForTitles": 1870922
+      },
+      "missing_percentages": {
+        "nconst": 0.0,
+        "primaryName": 0.0,
+        "birthYear": 95.63,
+        "deathYear": 98.32,
+        "primaryProfession": 20.23,
+        "knownForTitles": 12.05
+      },
+      "audit_duration_seconds": 15.01
+    },
+    "title.akas.tsv": {
+      "file_name": "title.akas.tsv",
+      "total_rows": 58673613,
+      "missing_counts": {
+        "titleId": 0,
+        "ordering": 0,
+        "title": 0,
+        "region": 12716835,
+        "language": 19177141,
+        "types": 39353676,
+        "attributes": 58360558,
+        "isOriginalTitle": 0
+      },
+      "missing_percentages": {
+        "titleId": 0.0,
+        "ordering": 0.0,
+        "title": 0.0,
+        "region": 21.67,
+        "language": 32.68,
+        "types": 67.07,
+        "attributes": 99.47,
+        "isOriginalTitle": 0.0
+      },
+      "audit_duration_seconds": 43.04
+    },
+    "title.basics.tsv": {
+      "file_name": "title.basics.tsv",
+      "total_rows": 12674027,
+      "missing_counts": {
+        "tconst": 0,
+        "titleType": 0,
+        "primaryTitle": 0,
+        "originalTitle": 0,
+        "isAdult": 0,
+        "startYear": 1477482,
+        "endYear": 12514376,
+        "runtimeMinutes": 8127732,
+        "genres": 539832
+      },
+      "missing_percentages": {
+        "tconst": 0.0,
+        "titleType": 0.0,
+        "primaryTitle": 0.0,
+        "originalTitle": 0.0,
+        "isAdult": 0.0,
+        "startYear": 11.66,
+        "endYear": 98.74,
+        "runtimeMinutes": 64.13,
+        "genres": 4.26
+      },
+      "audit_duration_seconds": 14.37
+    },
+    "title.crew.tsv": {
+      "file_name": "title.crew.tsv",
+      "total_rows": 12675173,
+      "missing_counts": {
+        "tconst": 0,
+        "directors": 5618437,
+        "writers": 6248977
+      },
+      "missing_percentages": {
+        "tconst": 0.0,
+        "directors": 44.33,
+        "writers": 49.3
+      },
+      "audit_duration_seconds": 6.07
+    },
+    "title.episode.tsv": {
+      "file_name": "title.episode.tsv",
+      "total_rows": 9796655,
+      "missing_counts": {
+        "tconst": 0,
+        "parentTconst": 2,
+        "seasonNumber": 2045194,
+        "episodeNumber": 2045194
+      },
+      "missing_percentages": {
+        "tconst": 0.0,
+        "parentTconst": 0.0,
+        "seasonNumber": 20.88,
+        "episodeNumber": 20.88
+      },
+      "audit_duration_seconds": 3.96
+    },
+    "title.principals.tsv": {
+      "file_name": "title.principals.tsv",
+      "total_rows": 100782155,
+      "missing_counts": {
+        "tconst": 0,
+        "ordering": 0,
+        "nconst": 0,
+        "category": 0,
+        "job": 81350127,
+        "characters": 51597423
+      },
+      "missing_percentages": {
+        "tconst": 0.0,
+        "ordering": 0.0,
+        "nconst": 0.0,
+        "category": 0.0,
+        "job": 80.72,
+        "characters": 51.2
+      },
+      "audit_duration_seconds": 53.88
+    },
+    "title.ratings.tsv": {
+      "file_name": "title.ratings.tsv",
+      "total_rows": 1699786,
+      "missing_counts": {
+        "tconst": 0,
+        "averageRating": 0,
+        "numVotes": 0
+      },
+      "missing_percentages": {
+        "tconst": 0.0,
+        "averageRating": 0.0,
+        "numVotes": 0.0
+      },
+      "audit_duration_seconds": 0.61
+    }
+  },
+  "title_basics_detailed": {
+    "unique_tconst_count": 12674027,
+    "title_type_distribution": {
+      "tvEpisode": 9795762,
+      "movie": 753166,
+      "short": 1146546,
+      "video": 328764,
+      "tvMovie": 155515,
+      "tvSeries": 302885,
+      "tvSpecial": 58808,
+      "tvMiniSeries": 71825,
+      "videoGame": 49720,
+      "tvShort": 11035,
+      "tvPilot": 1
+    },
+    "genre_distribution": {
+      "Drama": 3530558,
+      "Comedy": 2445773,
+      "Talk-Show": 1569503,
+      "Short": 1345357,
+      "News": 1299290,
+      "Documentary": 1208456,
+      "Romance": 1163893,
+      "Family": 911254,
+      "Reality-TV": 711122,
+      "Animation": 634591,
+      "Crime": 535434,
+      "Action": 535356,
+      "Adventure": 492570,
+      "Game-Show": 483968,
+      "Music": 460779,
+      "Adult": 412616,
+      "Sport": 333992,
+      "Fantasy": 287153,
+      "Horror": 277594,
+      "Mystery": 274543,
+      "Thriller": 211301,
+      "History": 187369,
+      "Biography": 133169,
+      "Sci-Fi": 128607,
+      "Musical": 99221,
+      "War": 43267,
+      "Western": 31761,
+      "Film-Noir": 876
+    },
+    "year_stats": {
+      "min_year": 1874,
+      "max_year": 2115,
+      "mean_year": 2006.9,
+      "missing_or_invalid": 1477482,
+      "total_valid": 11196545
+    },
+    "runtime_stats": {
+      "min_runtime": 0.0,
+      "max_runtime": 3692080.0,
+      "mean_runtime": 44.8,
+      "median_runtime_estimate": 30.0,
+      "p75_estimate": 50.0,
+      "p95_estimate": 112.0,
+      "missing_or_invalid": 8127732,
+      "total_valid": 4546295
+    }
+  },
+  "title_ratings_detailed": {
+    "unique_tconst_count": 1699786,
+    "rating_stats": {
+      "count": 1699786,
+      "min": 1.0,
+      "max": 10.0,
+      "mean": 6.96,
+      "median": 7.2,
+      "p25": 6.2,
+      "p75": 7.9
+    },
+    "vote_stats": {
+      "count": 1699786,
+      "min": 5,
+      "max": 3213685,
+      "mean": 1033.4,
+      "median": 26,
+      "p25": 12,
+      "p75": 100,
+      "p90": 488,
+      "p95": 1371,
+      "p99": 10711,
+      "votes_gt_100": 426077,
+      "votes_gt_1000": 106288,
+      "votes_gt_10000": 17871
+    }
+  },
+  "join_coverage": {
+    "basics_total_tconsts": 12674027,
+    "ratings_total_tconsts": 1699786,
+    "ratings_tconsts_in_basics": 1699783,
+    "ratings_coverage_pct_of_basics": 13.41,
+    "basics_coverage_pct_of_ratings": 100.0,
+    "title.crew.tsv": {
+      "total_rows": 12675173,
+      "unique_tconsts": 12675173,
+      "unique_tconsts_in_basics": 12674013,
+      "pct_tconsts_in_basics": 99.99,
+      "unique_tconsts_in_ratings": 1699786,
+      "pct_tconsts_in_ratings": 13.41
+    },
+    "title.episode.tsv": {
+      "total_rows": 9796655,
+      "unique_tconsts": 9796655,
+      "unique_tconsts_in_basics": 9795762,
+      "pct_tconsts_in_basics": 99.99,
+      "unique_tconsts_in_ratings": 872455,
+      "pct_tconsts_in_ratings": 8.91
+    },
+    "title.principals.tsv": {
+      "total_rows": 100782155,
+      "unique_tconsts": 11459401,
+      "unique_tconsts_in_basics": 11458571,
+      "pct_tconsts_in_basics": 99.99,
+      "unique_tconsts_in_ratings": 1669321,
+      "pct_tconsts_in_ratings": 14.57
+    },
+    "title.akas.tsv": {
+      "total_rows": 58673613,
+      "unique_tconsts": 12671101,
+      "unique_tconsts_in_basics": 12669551,
+      "pct_tconsts_in_basics": 99.99,
+      "unique_tconsts_in_ratings": 1699702,
+      "pct_tconsts_in_ratings": 13.41
+    }
+  }
+}

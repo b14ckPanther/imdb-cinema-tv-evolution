@@ -1,0 +1,337 @@
+{
+  "audit_timestamp_utc": "2026-07-28T11:31:14.900871+00:00",
+  "total_dataset_rows": 212027848,
+  "inventory": {
+    "name.basics.tsv": {
+      "filename": "name.basics.tsv",
+      "is_compressed": false,
+      "byte_size": 959606480,
+      "byte_size_mb": 915.15,
+      "byte_size_gb": 0.8937,
+      "data_row_count": 15526439,
+      "num_columns": 6,
+      "columns": [
+        "nconst",
+        "primaryName",
+        "birthYear",
+        "deathYear",
+        "primaryProfession",
+        "knownForTitles"
+      ],
+      "mtime_utc": "2026-07-28T10:46:57.925978+00:00"
+    },
+    "title.akas.tsv": {
+      "filename": "title.akas.tsv",
+      "is_compressed": false,
+      "byte_size": 2969225875,
+      "byte_size_mb": 2831.67,
+      "byte_size_gb": 2.7653,
+      "data_row_count": 58673613,
+      "num_columns": 8,
+      "columns": [
+        "titleId",
+        "ordering",
+        "title",
+        "region",
+        "language",
+        "types",
+        "attributes",
+        "isOriginalTitle"
+      ],
+      "mtime_utc": "2026-07-28T10:46:59.906638+00:00"
+    },
+    "title.basics.tsv": {
+      "filename": "title.basics.tsv",
+      "is_compressed": false,
+      "byte_size": 1099639925,
+      "byte_size_mb": 1048.7,
+      "byte_size_gb": 1.0241,
+      "data_row_count": 12674027,
+      "num_columns": 9,
+      "columns": [
+        "tconst",
+        "titleType",
+        "primaryTitle",
+        "originalTitle",
+        "isAdult",
+        "startYear",
+        "endYear",
+        "runtimeMinutes",
+        "genres"
+      ],
+      "mtime_utc": "2026-07-28T10:42:52.846616+00:00"
+    },
+    "title.crew.tsv": {
+      "filename": "title.crew.tsv",
+      "is_compressed": false,
+      "byte_size": 417723905,
+      "byte_size_mb": 398.37,
+      "byte_size_gb": 0.389,
+      "data_row_count": 12675173,
+      "num_columns": 3,
+      "columns": [
+        "tconst",
+        "directors",
+        "writers"
+      ],
+      "mtime_utc": "2026-07-28T10:48:02.540697+00:00"
+    },
+    "title.episode.tsv": {
+      "filename": "title.episode.tsv",
+      "is_compressed": false,
+      "byte_size": 257459493,
+      "byte_size_mb": 245.53,
+      "byte_size_gb": 0.2398,
+      "data_row_count": 9796655,
+      "num_columns": 4,
+      "columns": [
+        "tconst",
+        "parentTconst",
+        "seasonNumber",
+        "episodeNumber"
+      ],
+      "mtime_utc": "2026-07-28T10:48:00.313263+00:00"
+    },
+    "title.principals.tsv": {
+      "filename": "title.principals.tsv",
+      "is_compressed": false,
+      "byte_size": 4504528838,
+      "byte_size_mb": 4295.85,
+      "byte_size_gb": 4.1952,
+      "data_row_count": 100782155,
+      "num_columns": 6,
+      "columns": [
+        "tconst",
+        "ordering",
+        "nconst",
+        "category",
+        "job",
+        "characters"
+      ],
+      "mtime_utc": "2026-07-28T10:49:17.895172+00:00"
+    },
+    "title.ratings.tsv": {
+      "filename": "title.ratings.tsv",
+      "is_compressed": false,
+      "byte_size": 29676539,
+      "byte_size_mb": 28.3,
+      "byte_size_gb": 0.0276,
+      "data_row_count": 1699786,
+      "num_columns": 3,
+      "columns": [
+        "tconst",
+        "averageRating",
+        "numVotes"
+      ],
+      "mtime_utc": "2026-07-28T10:42:34.053656+00:00"
+    }
+  },
+  "title_basics_composition": {
+    "tvEpisode": {
+      "count": 9795762,
+      "total_basics_rows": 12674027,
+      "percentage": 77.2901,
+      "formatted": "9,795,762 / 12,674,027 (77.29%)"
+    },
+    "short": {
+      "count": 1146546,
+      "total_basics_rows": 12674027,
+      "percentage": 9.0464,
+      "formatted": "1,146,546 / 12,674,027 (9.05%)"
+    },
+    "movie": {
+      "count": 753166,
+      "total_basics_rows": 12674027,
+      "percentage": 5.9426,
+      "formatted": "753,166 / 12,674,027 (5.94%)"
+    },
+    "video": {
+      "count": 328764,
+      "total_basics_rows": 12674027,
+      "percentage": 2.594,
+      "formatted": "328,764 / 12,674,027 (2.59%)"
+    },
+    "tvSeries": {
+      "count": 302885,
+      "total_basics_rows": 12674027,
+      "percentage": 2.3898,
+      "formatted": "302,885 / 12,674,027 (2.39%)"
+    },
+    "tvMovie": {
+      "count": 155515,
+      "total_basics_rows": 12674027,
+      "percentage": 1.227,
+      "formatted": "155,515 / 12,674,027 (1.23%)"
+    },
+    "tvMiniSeries": {
+      "count": 71825,
+      "total_basics_rows": 12674027,
+      "percentage": 0.5667,
+      "formatted": "71,825 / 12,674,027 (0.57%)"
+    },
+    "tvSpecial": {
+      "count": 58808,
+      "total_basics_rows": 12674027,
+      "percentage": 0.464,
+      "formatted": "58,808 / 12,674,027 (0.46%)"
+    },
+    "videoGame": {
+      "count": 49720,
+      "total_basics_rows": 12674027,
+      "percentage": 0.3923,
+      "formatted": "49,720 / 12,674,027 (0.39%)"
+    },
+    "tvShort": {
+      "count": 11035,
+      "total_basics_rows": 12674027,
+      "percentage": 0.0871,
+      "formatted": "11,035 / 12,674,027 (0.09%)"
+    },
+    "tvPilot": {
+      "count": 1,
+      "total_basics_rows": 12674027,
+      "percentage": 0.0,
+      "formatted": "1 / 12,674,027 (0.00%)"
+    }
+  },
+  "join_integrity": {
+    "title_basics_total_rows": 12674027,
+    "title_basics_unique_tconsts": 12674027,
+    "title_basics_duplicate_tconsts": 0,
+    "title_ratings_total_rows": 1699786,
+    "title_ratings_unique_tconsts": 1699786,
+    "title_ratings_duplicate_tconsts": 0,
+    "ratings_rows_matching_basics": 1699783,
+    "ratings_rows_matching_basics_pct": 99.9998,
+    "ratings_rows_not_matching_basics": 3,
+    "basics_rows_with_ratings": 1699783,
+    "basics_rows_with_ratings_pct": 13.4115
+  },
+  "threshold_analysis": {
+    "all_rated_titles_joined": {
+      "display_name": "All Rated Titles Joined to title.basics",
+      "total_titles_in_scope": 1699783,
+      "total_rated_titles_in_scope": 1699783,
+      "threshold_counts": {
+        "numVotes_gte_0": 1699783,
+        "numVotes_gte_100": 426076,
+        "numVotes_gte_500": 167463,
+        "numVotes_gte_1000": 106288,
+        "numVotes_gte_5000": 31320,
+        "numVotes_gte_10000": 17871
+      }
+    },
+    "movie_only": {
+      "display_name": "Movie Only (Joined to title.basics)",
+      "total_titles_in_scope": 753166,
+      "total_rated_titles_in_scope": 348542,
+      "threshold_counts": {
+        "numVotes_gte_0": 348542,
+        "numVotes_gte_100": 145949,
+        "numVotes_gte_500": 70311,
+        "numVotes_gte_1000": 48808,
+        "numVotes_gte_5000": 18949,
+        "numVotes_gte_10000": 12489
+      }
+    },
+    "tvSeries_only": {
+      "display_name": "tvSeries Only (Joined to title.basics)",
+      "total_titles_in_scope": 302885,
+      "total_rated_titles_in_scope": 113491,
+      "threshold_counts": {
+        "numVotes_gte_0": 113491,
+        "numVotes_gte_100": 34679,
+        "numVotes_gte_500": 14951,
+        "numVotes_gte_1000": 10199,
+        "numVotes_gte_5000": 3848,
+        "numVotes_gte_10000": 2345
+      }
+    },
+    "movie_and_tvSeries": {
+      "display_name": "Movie + tvSeries (Joined to title.basics)",
+      "total_titles_in_scope": 1056051,
+      "total_rated_titles_in_scope": 462033,
+      "threshold_counts": {
+        "numVotes_gte_0": 462033,
+        "numVotes_gte_100": 180628,
+        "numVotes_gte_500": 85262,
+        "numVotes_gte_1000": 59007,
+        "numVotes_gte_5000": 22797,
+        "numVotes_gte_10000": 14834
+      }
+    }
+  },
+  "validity_fields": {
+    "movie": {
+      "total_scope_rows": 753166,
+      "startYear": {
+        "valid_count": 639767,
+        "missing_count": 113399,
+        "missing_pct": 15.06,
+        "min": 1894,
+        "max": 2032
+      },
+      "runtimeMinutes": {
+        "valid_count": 474911,
+        "missing_count": 278255,
+        "missing_pct": 36.94,
+        "min": 1.0,
+        "max": 51420.0
+      },
+      "genres": {
+        "missing_count": 77966,
+        "missing_pct": 10.35
+      },
+      "averageRating": {
+        "rated_count": 348542,
+        "min": 1.0,
+        "max": 10.0
+      },
+      "numVotes": {
+        "rated_count": 348542,
+        "min": 5,
+        "max": 3213685
+      }
+    },
+    "tvSeries": {
+      "total_scope_rows": 302885,
+      "startYear": {
+        "valid_count": 277228,
+        "missing_count": 25657,
+        "missing_pct": 8.47,
+        "min": 1908,
+        "max": 2030
+      },
+      "runtimeMinutes": {
+        "valid_count": 111635,
+        "missing_count": 191250,
+        "missing_pct": 63.14,
+        "min": 1.0,
+        "max": 3692080.0
+      },
+      "genres": {
+        "missing_count": 23955,
+        "missing_pct": 7.91
+      },
+      "averageRating": {
+        "rated_count": 113491,
+        "min": 1.0,
+        "max": 10.0
+      },
+      "numVotes": {
+        "rated_count": 113491,
+        "min": 5,
+        "max": 2648744
+      }
+    }
+  },
+  "title_crew_investigation": {
+    "title_crew_total_rows": 12675173,
+    "title_crew_unique_tconsts": 12675173,
+    "title_crew_duplicate_tconsts": 0,
+    "tconsts_in_crew_not_in_basics": 1160,
+    "tconsts_in_basics_not_in_crew": 14,
+    "net_row_difference_crew_minus_basics": 1146,
+    "explanation": "title.crew has 0 duplicate tconsts (exactly 1 row per tconst). The net row difference of 1,146 rows (12,675,173 vs 12,674,027) is caused by 1,160 orphan tconst IDs present in title.crew that do not exist in title.basics, offset by 14 tconst IDs present in title.basics that do not exist in title.crew."
+  }
+}

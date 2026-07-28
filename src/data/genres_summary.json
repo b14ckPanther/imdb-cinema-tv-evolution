@@ -1,0 +1,448 @@
+{
+  "genres": [
+    {
+      "name": "Drama",
+      "id": 7,
+      "count": 32086,
+      "movie_count": 27178,
+      "tv_count": 4908,
+      "avg_rating": 6.61,
+      "classical_count": 3994,
+      "modern_count": 28049
+    },
+    {
+      "name": "Comedy",
+      "id": 4,
+      "count": 20315,
+      "movie_count": 16238,
+      "tv_count": 4077,
+      "avg_rating": 6.37,
+      "classical_count": 1867,
+      "modern_count": 18437
+    },
+    {
+      "name": "Action",
+      "id": 0,
+      "count": 10857,
+      "movie_count": 8874,
+      "tv_count": 1983,
+      "avg_rating": 6.15,
+      "classical_count": 580,
+      "modern_count": 10270
+    },
+    {
+      "name": "Crime",
+      "id": 5,
+      "count": 9962,
+      "movie_count": 8097,
+      "tv_count": 1865,
+      "avg_rating": 6.49,
+      "classical_count": 1174,
+      "modern_count": 8778
+    },
+    {
+      "name": "Romance",
+      "id": 19,
+      "count": 9233,
+      "movie_count": 8110,
+      "tv_count": 1123,
+      "avg_rating": 6.48,
+      "classical_count": 1492,
+      "modern_count": 7728
+    },
+    {
+      "name": "Thriller",
+      "id": 24,
+      "count": 8134,
+      "movie_count": 7434,
+      "tv_count": 700,
+      "avg_rating": 5.93,
+      "classical_count": 414,
+      "modern_count": 7720
+    },
+    {
+      "name": "Adventure",
+      "id": 1,
+      "count": 7034,
+      "movie_count": 5288,
+      "tv_count": 1746,
+      "avg_rating": 6.36,
+      "classical_count": 908,
+      "modern_count": 6114
+    },
+    {
+      "name": "Horror",
+      "id": 13,
+      "count": 6963,
+      "movie_count": 6633,
+      "tv_count": 330,
+      "avg_rating": 5.33,
+      "classical_count": 643,
+      "modern_count": 6314
+    },
+    {
+      "name": "Mystery",
+      "id": 16,
+      "count": 5103,
+      "movie_count": 4135,
+      "tv_count": 968,
+      "avg_rating": 6.21,
+      "classical_count": 489,
+      "modern_count": 4613
+    },
+    {
+      "name": "Animation",
+      "id": 2,
+      "count": 3466,
+      "movie_count": 1601,
+      "tv_count": 1865,
+      "avg_rating": 6.92,
+      "classical_count": 105,
+      "modern_count": 3361
+    },
+    {
+      "name": "Fantasy",
+      "id": 9,
+      "count": 3321,
+      "movie_count": 2644,
+      "tv_count": 677,
+      "avg_rating": 6.19,
+      "classical_count": 320,
+      "modern_count": 2994
+    },
+    {
+      "name": "Documentary",
+      "id": 6,
+      "count": 3055,
+      "movie_count": 2557,
+      "tv_count": 498,
+      "avg_rating": 7.22,
+      "classical_count": 67,
+      "modern_count": 2988
+    },
+    {
+      "name": "Biography",
+      "id": 3,
+      "count": 2750,
+      "movie_count": 2579,
+      "tv_count": 171,
+      "avg_rating": 6.94,
+      "classical_count": 231,
+      "modern_count": 2516
+    },
+    {
+      "name": "Family",
+      "id": 8,
+      "count": 2716,
+      "movie_count": 2041,
+      "tv_count": 675,
+      "avg_rating": 6.39,
+      "classical_count": 395,
+      "modern_count": 2318
+    },
+    {
+      "name": "Sci-Fi",
+      "id": 20,
+      "count": 2699,
+      "movie_count": 2380,
+      "tv_count": 319,
+      "avg_rating": 5.6,
+      "classical_count": 343,
+      "modern_count": 2355
+    },
+    {
+      "name": "History",
+      "id": 12,
+      "count": 2271,
+      "movie_count": 1922,
+      "tv_count": 349,
+      "avg_rating": 6.94,
+      "classical_count": 274,
+      "modern_count": 1992
+    },
+    {
+      "name": "Music",
+      "id": 14,
+      "count": 1660,
+      "movie_count": 1478,
+      "tv_count": 182,
+      "avg_rating": 6.75,
+      "classical_count": 162,
+      "modern_count": 1498
+    },
+    {
+      "name": "War",
+      "id": 25,
+      "count": 1296,
+      "movie_count": 1225,
+      "tv_count": 71,
+      "avg_rating": 6.83,
+      "classical_count": 430,
+      "modern_count": 862
+    },
+    {
+      "name": "Sport",
+      "id": 22,
+      "count": 1077,
+      "movie_count": 914,
+      "tv_count": 163,
+      "avg_rating": 6.68,
+      "classical_count": 57,
+      "modern_count": 1020
+    },
+    {
+      "name": "Musical",
+      "id": 15,
+      "count": 885,
+      "movie_count": 845,
+      "tv_count": 40,
+      "avg_rating": 6.59,
+      "classical_count": 337,
+      "modern_count": 546
+    },
+    {
+      "name": "Western",
+      "id": 26,
+      "count": 714,
+      "movie_count": 659,
+      "tv_count": 55,
+      "avg_rating": 6.48,
+      "classical_count": 435,
+      "modern_count": 277
+    },
+    {
+      "name": "Reality-TV",
+      "id": 18,
+      "count": 567,
+      "movie_count": 0,
+      "tv_count": 567,
+      "avg_rating": 6.55,
+      "classical_count": 0,
+      "modern_count": 567
+    },
+    {
+      "name": "Film-Noir",
+      "id": 10,
+      "count": 461,
+      "movie_count": 461,
+      "tv_count": 0,
+      "avg_rating": 6.85,
+      "classical_count": 461,
+      "modern_count": 0
+    },
+    {
+      "name": "Game-Show",
+      "id": 11,
+      "count": 260,
+      "movie_count": 0,
+      "tv_count": 260,
+      "avg_rating": 6.92,
+      "classical_count": 3,
+      "modern_count": 257
+    },
+    {
+      "name": "Talk-Show",
+      "id": 23,
+      "count": 205,
+      "movie_count": 1,
+      "tv_count": 204,
+      "avg_rating": 6.57,
+      "classical_count": 5,
+      "modern_count": 200
+    },
+    {
+      "name": "News",
+      "id": 17,
+      "count": 108,
+      "movie_count": 29,
+      "tv_count": 79,
+      "avg_rating": 6.74,
+      "classical_count": 5,
+      "modern_count": 103
+    },
+    {
+      "name": "Short",
+      "id": 21,
+      "count": 42,
+      "movie_count": 0,
+      "tv_count": 42,
+      "avg_rating": 7.32,
+      "classical_count": 0,
+      "modern_count": 42
+    }
+  ],
+  "genre_list": [
+    "Action",
+    "Adventure",
+    "Animation",
+    "Biography",
+    "Comedy",
+    "Crime",
+    "Documentary",
+    "Drama",
+    "Family",
+    "Fantasy",
+    "Film-Noir",
+    "Game-Show",
+    "History",
+    "Horror",
+    "Music",
+    "Musical",
+    "Mystery",
+    "News",
+    "Reality-TV",
+    "Romance",
+    "Sci-Fi",
+    "Short",
+    "Sport",
+    "Talk-Show",
+    "Thriller",
+    "War",
+    "Western"
+  ],
+  "decades": [
+    {
+      "decade": 1900,
+      "total_count": 1,
+      "movie_count": 1,
+      "tv_count": 0,
+      "avg_rating_all": 6.0,
+      "avg_rating_movie": 6.0,
+      "avg_rating_tv": 0,
+      "avg_runtime_movie": 70.0,
+      "avg_runtime_tv": 0
+    },
+    {
+      "decade": 1910,
+      "total_count": 57,
+      "movie_count": 57,
+      "tv_count": 0,
+      "avg_rating_all": 6.68,
+      "avg_rating_movie": 6.68,
+      "avg_rating_tv": 0,
+      "avg_runtime_movie": 95.7,
+      "avg_runtime_tv": 0
+    },
+    {
+      "decade": 1920,
+      "total_count": 241,
+      "movie_count": 241,
+      "tv_count": 0,
+      "avg_rating_all": 7.03,
+      "avg_rating_movie": 7.03,
+      "avg_rating_tv": 0,
+      "avg_runtime_movie": 95.5,
+      "avg_runtime_tv": 0
+    },
+    {
+      "decade": 1930,
+      "total_count": 808,
+      "movie_count": 807,
+      "tv_count": 1,
+      "avg_rating_all": 6.8,
+      "avg_rating_movie": 6.8,
+      "avg_rating_tv": 6.9,
+      "avg_runtime_movie": 87.7,
+      "avg_runtime_tv": 299.0
+    },
+    {
+      "decade": 1940,
+      "total_count": 1138,
+      "movie_count": 1135,
+      "tv_count": 3,
+      "avg_rating_all": 6.81,
+      "avg_rating_movie": 6.81,
+      "avg_rating_tv": 7.17,
+      "avg_runtime_movie": 95.6,
+      "avg_runtime_tv": 117.7
+    },
+    {
+      "decade": 1950,
+      "total_count": 1678,
+      "movie_count": 1616,
+      "tv_count": 62,
+      "avg_rating_all": 6.69,
+      "avg_rating_movie": 6.65,
+      "avg_rating_tv": 7.74,
+      "avg_runtime_movie": 97.1,
+      "avg_runtime_tv": 43.6
+    },
+    {
+      "decade": 1960,
+      "total_count": 2185,
+      "movie_count": 2015,
+      "tv_count": 170,
+      "avg_rating_all": 6.67,
+      "avg_rating_movie": 6.61,
+      "avg_rating_tv": 7.44,
+      "avg_runtime_movie": 104.7,
+      "avg_runtime_tv": 40.5
+    },
+    {
+      "decade": 1970,
+      "total_count": 2852,
+      "movie_count": 2599,
+      "tv_count": 253,
+      "avg_rating_all": 6.57,
+      "avg_rating_movie": 6.47,
+      "avg_rating_tv": 7.52,
+      "avg_runtime_movie": 103.5,
+      "avg_runtime_tv": 50.1
+    },
+    {
+      "decade": 1980,
+      "total_count": 3760,
+      "movie_count": 3367,
+      "tv_count": 393,
+      "avg_rating_all": 6.37,
+      "avg_rating_movie": 6.26,
+      "avg_rating_tv": 7.3,
+      "avg_runtime_movie": 102.7,
+      "avg_runtime_tv": 44.2
+    },
+    {
+      "decade": 1990,
+      "total_count": 5127,
+      "movie_count": 4365,
+      "tv_count": 762,
+      "avg_rating_all": 6.45,
+      "avg_rating_movie": 6.31,
+      "avg_rating_tv": 7.26,
+      "avg_runtime_movie": 106.7,
+      "avg_runtime_tv": 42.4
+    },
+    {
+      "decade": 2000,
+      "total_count": 10078,
+      "movie_count": 8476,
+      "tv_count": 1602,
+      "avg_rating_all": 6.35,
+      "avg_rating_movie": 6.19,
+      "avg_rating_tv": 7.15,
+      "avg_runtime_movie": 105.7,
+      "avg_runtime_tv": 50.0
+    },
+    {
+      "decade": 2010,
+      "total_count": 18060,
+      "movie_count": 14502,
+      "tv_count": 3558,
+      "avg_rating_all": 6.3,
+      "avg_rating_movie": 6.07,
+      "avg_rating_tv": 7.23,
+      "avg_runtime_movie": 105.0,
+      "avg_runtime_tv": 44.7
+    },
+    {
+      "decade": 2020,
+      "total_count": 13005,
+      "movie_count": 9610,
+      "tv_count": 3395,
+      "avg_rating_all": 6.34,
+      "avg_rating_movie": 6.1,
+      "avg_rating_tv": 7.01,
+      "avg_runtime_movie": 111.3,
+      "avg_runtime_tv": 50.3
+    }
+  ]
+}
