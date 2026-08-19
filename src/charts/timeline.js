@@ -13,7 +13,7 @@ export class TimelineChart {
     this.svg = null;
     this.width = 0;
     this.height = 0;
-    this.margin = { top: 15, right: 20, bottom: 35, left: 50 };
+    this.margin = { top: 15, right: 20, bottom: 38, left: 55 };
   }
 
   init() {
@@ -116,6 +116,31 @@ export class TimelineChart {
 
     this.svg.selectAll('.domain, .tick line')
       .attr('stroke', axisLineColor);
+
+    // Axis Labels
+    this.svg.append('text')
+      .attr('x', this.width / 2)
+      .attr('y', this.height + 32)
+      .attr('fill', axisTextColor)
+      .attr('font-size', '11px')
+      .attr('font-weight', '600')
+      .attr('text-anchor', 'middle')
+      .text('Release Year');
+
+    // Dynamic Y-axis Title based on active metric
+    let yAxisTitle = 'Number of Titles';
+    if (metricMode === 'rating') yAxisTitle = 'Mean Audience Rating';
+    else if (metricMode === 'runtime') yAxisTitle = 'Mean Runtime (minutes)';
+
+    this.svg.append('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('x', -this.height / 2)
+      .attr('y', -38)
+      .attr('fill', axisTextColor)
+      .attr('font-size', '11px')
+      .attr('font-weight', '600')
+      .attr('text-anchor', 'middle')
+      .text(yAxisTitle);
 
     // Color gradient based on metric
     let gradientColor = '#4f46e5'; // Indigo

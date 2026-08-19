@@ -10,7 +10,7 @@ import { store } from '../state/store.js';
 export class BreakdownChart {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
-    this.margin = { top: 10, right: 35, bottom: 25, left: 85 };
+    this.margin = { top: 10, right: 35, bottom: 38, left: 85 };
   }
 
   init() {
@@ -101,6 +101,16 @@ export class BreakdownChart {
 
     svg.selectAll('.domain, .tick line')
       .attr('stroke', axisLineColor);
+
+    // X Axis Label
+    svg.append('text')
+      .attr('x', width / 2)
+      .attr('y', height + 32)
+      .attr('fill', axisTextColor)
+      .attr('font-size', '11px')
+      .attr('font-weight', '600')
+      .attr('text-anchor', 'middle')
+      .text('Number of Titles');
 
     // Bars
     svg.selectAll('.bar')
