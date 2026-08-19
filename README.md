@@ -1,84 +1,278 @@
 # IMDb Cinema & TV Evolution Explorer (1920–2025)
 
-## Course & Team Credentials
-- **Course**: Information Visualization (תשפ״ו)
-- **Selected Dataset**: IMDb Non-Commercial Datasets (Official dump from IMDb)
-- **Team Members**:
-  1. **Noor Alden Mousa** (נור אלדין מוסא)
-  2. **Aya Khalaila** (איה חלאילה)
-  3. **Sleeman Eketeh** (סלימאן עקיטה)
+Interactive information visualization project exploring long-term patterns in IMDb movies and TV series between 1920 and 2025.
 
-*(Note: Student IDs are omitted from public GitHub repository files for privacy and are included in the final PDF submission report header).*
+## Live Project
+
+**Interactive Visualization:**  
+https://imdb-cinema-tv-evolution.vercel.app/
+
+**GitHub Repository:**  
+https://github.com/b14ckPanther/imdb-cinema-tv-evolution
+
+---
+
+## Course & Team
+
+- **Course:** Information Visualization (2025-2026)
+- **Dataset:** IMDb Non-Commercial Datasets
+- **Team Members:**
+  1. **Noor Alden Mousa**
+  2. **Aya Khalaila**
+  3. **Sleeman Eketeh**
+
+> Student IDs are intentionally omitted from the public repository for privacy and are included in the final submission report.
+
+---
 
 ## Project Overview
-An interactive web application built with **Vite, Vanilla JavaScript (ES Modules), D3.js (v7), and Vanilla CSS** to visualize rating, runtime, popularity, and genre dynamics across 58,990 feature movies and TV series (1920–2025).
 
-## Tools & AI Assistance Disclosure
-- **Core Stack**: D3.js (v7.9.0), Vite (v8.1.5), Vanilla JS (ESM), Vanilla CSS3, Python (pandas/numpy).
-- **Hosting & CI/CD**: GitHub, Vercel Edge CDN Network.
-- **AI Assistant Workflow**:
-  - **ChatGPT**: Used for prompt formulation, research question structuring, reviewing output strategies, and refining analytical text.
-  - **Antigravity (Google DeepMind)**: Used as a multi-agent coding assistant for streaming data audits, Python preprocessing scripts, D3 chart modules, and Vite build verification.
+The **IMDb Cinema & TV Evolution Explorer** is a web-based interactive visualization designed to examine how movies and TV series represented in IMDb have changed over time.
 
-## Current Project Status
-- **Source Control**: Committed & pushed to GitHub (`https://github.com/b14ckPanther/imdb-cinema-tv-evolution.git`).
-- **Build Status**: Local & Vercel production build **PASSED** (`npm run build` in 213ms).
-- **Functional Readiness**: 18 / 18 functional workflows verified.
-- **Deployment Status**: **DEPLOYED TO VERCEL**.
-- **Progress Tracker**: Full requirements & stage progress matrix documented in [docs/project_progress_tracker.md](file:///Users/zangeel/Documents/GitHub/imdb-cinema-tv-evolution/docs/project_progress_tracker.md).
+The project focuses on several related questions:
+
+- How has the volume of movies and TV series changed between 1920 and 2025?
+- How have IMDb audience ratings changed over time?
+- Which genres are most frequently represented, and how does genre composition differ across periods?
+- What is the relationship between audience rating and popularity?
+- How do movies and TV series compare within the same rating-popularity space?
+- How do different historical periods and popularity thresholds affect the observed patterns?
+
+The dashboard combines temporal, categorical, and multivariate views within a coordinated interactive interface.
+
+---
+
+## Dataset
+
+The project uses two files from the official **IMDb Non-Commercial Datasets**:
+
+- `title.basics.tsv.gz` — title type, primary title, release year, runtime, and genres.
+- `title.ratings.tsv.gz` — average IMDb audience rating and number of user votes.
+
+Source:
+
+https://datasets.imdbws.com/
+
+Direct source files:
+
+- https://datasets.imdbws.com/title.basics.tsv.gz
+- https://datasets.imdbws.com/title.ratings.tsv.gz
+
+The source datasets are substantially larger than the final analytical subset:
+
+- `title.basics.tsv` contains approximately **12.67 million** title records.
+- `title.ratings.tsv` contains approximately **1.70 million** rated-title records.
+
+After preprocessing, the final analytical dataset contains **58,288 movies and TV series** satisfying the following criteria:
+
+- Title type is `movie` or `tvSeries`
+- Release/start year is between **1920 and 2025**
+- At least **1,000 IMDb votes**
+- Required analytical values are valid after preprocessing
+
+---
+
+## Data Preparation
+
+The raw IMDb datasets were processed in Python before being used by the interactive application.
+
+The main preprocessing steps were:
+
+1. **Title selection** — retained only movies and TV series.
+2. **Time filtering** — retained titles from 1920–2025 with a valid start year.
+3. **Ratings integration** — joined title metadata with IMDb ratings using the `tconst` identifier.
+4. **Vote threshold** — removed titles with fewer than 1,000 IMDb votes.
+5. **Data cleaning** — handled missing or invalid analytical values and excluded implausible runtime values from runtime-based calculations.
+6. **Genre preparation** — prepared genre information for consistent filtering and aggregation.
+7. **Web optimization** — exported the processed data as compact JSON files for efficient browser loading and interaction.
+
+The resulting **58,288-title analytical dataset** serves as the common data source for the visualizations and interactive analyses in the application.
+
+---
+
+## Visualization Design
+
+The dashboard contains three main coordinated visualizations:
+
+### Temporal Cinema Timeline
+
+A time-series visualization showing changes between 1920 and 2025.
+
+Users can switch between:
+
+- Release Volume
+- Mean Audience Rating
+- Mean Runtime
+
+The timeline also supports brushing to select a specific year range.
+
+### Top Genre Distribution
+
+A horizontal bar chart showing the most frequent genres within the current selection.
+
+The chart updates according to the active filters and supports genre isolation through interaction.
+
+### Multivariate Rating & Popularity Distribution
+
+A scatterplot combining multiple title-level attributes:
+
+- **X-axis:** IMDb audience rating
+- **Y-axis:** IMDb vote count on a logarithmic scale
+- **Color:** Genre
+- **Point size:** Runtime
+- **Point shape:** Movie or TV series when distinct shapes are enabled
+
+The scatterplot supports simultaneous exploration of rating, popularity, genre, runtime, and format.
+
+---
+
+## Interactive Features
+
+The application provides coordinated filtering and exploration through:
+
+- Release-year range filtering
+- Minimum vote threshold
+- Genre filtering
+- Movie / TV-series format selection
+- Historical-era selection
+- Title search
+- Timeline brushing
+- Genre-bar interaction
+- Quick presets
+- Movie vs. TV-series comparison
+- Side-by-Side Compare mode
+- Distinct point shapes
+- Benchmark guide
+- Interactive tooltips
+- Exportable visualization images
+
+All relevant views and summary measures update according to the active selection.
+
+---
+
+## Tools and Technologies
+
+### Web Visualization
+
+- **Vite**
+- **D3.js**
+- **Vanilla JavaScript (ES Modules)**
+- **Vanilla CSS3**
+
+### Data Processing
+
+- **Python**
+- **Pandas**
+- **PyArrow**
+- **NumPy**
+
+### Development and Deployment
+
+- **Git**
+- **GitHub**
+- **Vercel**
+
+---
+
+## AI-Assisted Development
+
+AI-assisted tools were used during the development process.
+
+### ChatGPT
+
+ChatGPT supported:
+
+- Research planning
+- Visualization design decisions
+- Review of analytical interpretations
+- Documentation and report preparation
+- Development-related reasoning and troubleshooting
+
+### Antigravity
+
+Antigravity was used as a multi-agent development environment to support:
+
+- Data auditing
+- Python preprocessing scripts
+- D3 visualization implementation
+- Debugging
+- Build verification
+
+The final visualization design, implementation decisions, analytical interpretation, and submitted project were reviewed and validated as part of the project development process.
+
+---
+
+## Performance
+
+The full filtered dataset is retained for filtering and summary calculations.
+
+When a filtered selection is large, the multivariate scatterplot displays up to **3,500 sampled titles** to maintain responsive browser performance. Summary measures continue to use the complete filtered dataset.
+
+This approach reduces rendering cost while preserving the broader analytical context of the selected data.
 
 ---
 
 ## Directory Structure
-```
+
+```text
 imdb-cinema-tv-evolution/
-├── index.html                  # HTML5 application shell & controls
-├── package.json                # Dependencies (vite ^8.1.5, d3 ^7.9.0)
-├── package-lock.json           # Deterministic dependency lockfile
-├── vite.config.js              # Vite configuration (base: '/')
-├── README.md                   # Project overview & status
-├── .gitignore                  # Git rules ignoring node_modules, dist, .venv, raw TSVs
-├── docs/                       # Project documentation reports (Stages 1 through 6)
-│   ├── requirements_checklist.md
-│   ├── project_progress_tracker.md
-│   ├── stage_1_summary.md
-│   ├── stage_1_verification.md
-│   ├── stage_2a_web_architecture_decision.md
-│   ├── stage_2b_research_question_decision.md
-│   ├── stage_3_prototype_validation.md
-│   ├── stage_4_implementation_report.md
-│   ├── stage_5_final_verification_report.md
-│   └── stage_6_deployment_readiness_report.md
-├── scripts/                    # Python preprocessing & audit scripts
-│   ├── preprocess_data.py      # Reproducible dataset extraction pipeline
-│   └── audit_imdb_data.py      # IMDb TSV streaming auditor
-├── src/                        # Web application source code
-│   ├── assets/                 # CSS design system (main.css, components.css)
-│   ├── charts/                 # D3 chart modules (scatterplot, timeline, breakdown, tooltip)
-│   ├── data/                   # Preprocessed JSON analytical extracts
-│   │   ├── summary_titles.json # 58,990 analytical titles (5.16 MiB / 5.40 MB)
-│   │   ├── genres_summary.json # Genre lookup & decade metrics
-│   │   └── data_metrics.json   # Pipeline metrics
-│   ├── state/                  # Central event-driven store (store.js)
-│   ├── ui/                     # UI control panel & modal handlers
-│   └── main.js                 # App entry point with Vite asset URL imports
-└── outputs/                    # Audit logs & machine-readable outputs
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── README.md
+├── .gitignore
+├── docs/
+├── scripts/
+│   ├── preprocess_data.py
+│   └── audit_imdb_data.py
+├── src/
+│   ├── assets/
+│   ├── charts/
+│   ├── data/
+│   ├── state/
+│   ├── ui/
+│   └── main.js
+└── outputs/
 ```
 
 ---
 
-## Local Development & Build Execution
+## Local Development
+
+Install the project dependencies:
 
 ```bash
-# 1. Install dependencies
 npm install
+```
 
-# 2. Start local development server
+Start the development server:
+
+```bash
 npm run dev
+```
 
-# 3. Build production bundle locally
+Create a production build:
+
+```bash
 npm run build
+```
 
-# 4. Preview static production build
+Preview the production build locally:
+
+```bash
 npm run preview
 ```
+
+---
+
+## Project Resources
+
+**Live Visualization:**  
+https://imdb-cinema-tv-evolution.vercel.app/
+
+**Source Code:**  
+https://github.com/b14ckPanther/imdb-cinema-tv-evolution
+
+**IMDb Non-Commercial Datasets:**  
+https://developer.imdb.com/non-commercial-datasets/
