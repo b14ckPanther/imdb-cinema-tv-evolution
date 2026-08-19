@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMDb Cinema & TV Evolution Explorer (1920–2025)</title>
-  <meta name="description" content="Interactive D3.js visualization exploring movie and TV series ratings, vote distributions, runtimes, and genre trends across cinema history.">
+  <meta name="description"
+    content="Interactive D3.js visualization exploring movie and TV series ratings, vote distributions, runtimes, and genre trends across cinema history.">
   <link rel="stylesheet" href="/src/assets/main.css">
   <link rel="stylesheet" href="/src/assets/components.css">
 </head>
+
 <body>
 
   <!-- APP HEADER -->
   <header class="app-header">
     <div class="brand-container">
-      <div class="brand-logo">V</div>
       <div class="brand-title">IMDb Cinema & TV Evolution (1920–2025)</div>
     </div>
-    
+
     <!-- FORMAT MODE SWITCHER TABS -->
     <div class="format-mode-switcher" role="tablist" aria-label="Format Scope Selection">
       <button class="mode-tab active" data-format="all" role="tab" aria-selected="true">All Formats</button>
@@ -25,10 +27,24 @@
       <button class="mode-tab" data-format="compare" role="tab" aria-selected="false">Side-by-Side Compare</button>
     </div>
 
-    <div class="header-badges">
-      <span class="badge badge-primary">GitHub Repository</span>
-      <span class="badge">Vite 8.1.5</span>
-      <span class="badge">Deployment Pending</span>
+    <div class="header-actions">
+      <!-- Theme Toggle (Light / Dark) -->
+      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme"
+        title="Toggle Theme (Light / Dark)">
+        <span id="theme-icon" style="display: inline-flex; align-items: center;"></span>
+      </button>
+
+      <!-- Quick Export All Charts for Report -->
+      <button id="export-report-btn" class="btn btn-outline" style="font-size: 12px; padding: 6px 12px;"
+        title="Export all visual charts as PNGs for your assignment report">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        <span>Export Report Visuals</span>
+      </button>
     </div>
   </header>
 
@@ -37,12 +53,62 @@
 
     <!-- SIDEBAR FILTER CONTROLS -->
     <aside class="sidebar-panel" aria-label="Control Panel">
-      <div class="card-title">Filter Controls</div>
+      <div class="sidebar-title">
+        <span>Filter Controls</span>
+        <button id="reset-btn" class="btn-outline" style="padding: 3px 8px; font-size: 11px; border-radius: 4px;"
+          aria-label="Reset all filters">Reset</button>
+      </div>
+
+      <!-- Quick Era Presets -->
+      <div class="control-group">
+        <span class="control-label">Quick Presets</span>
+        <div class="preset-pills-container">
+          <button class="preset-pill" data-preset="golden-age">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="2.18" ry="2.18" />
+              <line x1="7" x2="7" y1="2" y2="22" />
+              <line x1="17" x2="17" y1="2" y2="22" />
+              <line x1="2" x2="22" y1="12" y2="12" />
+              <line x1="2" x2="7" y1="7" y2="7" />
+              <line x1="2" x2="7" y1="17" y2="17" />
+              <line x1="17" x2="22" y1="17" y2="17" />
+              <line x1="17" x2="22" y1="7" y2="7" />
+            </svg>
+            <span>Golden Age ('30–'59)</span>
+          </button>
+          <button class="preset-pill" data-preset="modern-blockbusters">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+            </svg>
+            <span>Modern ('90–'25)</span>
+          </button>
+          <button class="preset-pill" data-preset="top-rated">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+            <span>Acclaimed (Rating ≥ 8.0)</span>
+          </button>
+          <button class="preset-pill" data-preset="popular-hits">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z" />
+            </svg>
+            <span>Popular (50k+ votes)</span>
+          </button>
+        </div>
+      </div>
 
       <!-- Search Title -->
       <div class="control-group">
         <label for="search-input" class="control-label">Search Title</label>
-        <input type="text" id="search-input" class="form-input" placeholder="e.g. Inception, Breaking Bad..." aria-label="Search title by keyword">
+        <input type="text" id="search-input" class="form-input" placeholder="e.g. Inception, Breaking Bad..."
+          aria-label="Search title by keyword">
       </div>
 
       <!-- Sidebar Format Selector -->
@@ -59,7 +125,7 @@
       <!-- Year Range Slider -->
       <div class="control-group">
         <div class="control-label">
-          <span>Start Year</span>
+          <span>Release Year Range</span>
           <span id="year-val-label" class="control-value">1920 — 2025</span>
         </div>
         <div class="range-slider-container">
@@ -74,7 +140,8 @@
           <span>Min Vote Volume</span>
           <span id="votes-val-label" class="control-value">1,000+ votes</span>
         </div>
-        <input type="range" id="votes-slider" min="1000" max="100000" step="1000" value="1000" aria-label="Minimum Vote Count">
+        <input type="range" id="votes-slider" min="1000" max="100000" step="1000" value="1000"
+          aria-label="Minimum Vote Count">
       </div>
 
       <!-- Genre Select -->
@@ -94,11 +161,6 @@
           <option value="modern">Modern Era (1971–2025)</option>
         </select>
       </div>
-
-      <!-- Action Buttons -->
-      <div style="display: flex; gap: 10px; margin-top: auto;">
-        <button id="reset-btn" class="btn btn-outline" style="flex: 1;" aria-label="Reset all filters">Reset Filters</button>
-      </div>
     </aside>
 
     <!-- MAIN DASHBOARD CONTENT -->
@@ -107,49 +169,74 @@
       <!-- TOP METRICS SUMMARY ROW -->
       <div class="metrics-row" aria-label="Summary Statistics">
         <div class="metric-card">
-          <span id="metric-total-titles" class="metric-number">--</span>
           <span class="metric-label">Filtered Titles</span>
+          <span id="metric-total-titles" class="metric-number">--</span>
         </div>
         <div class="metric-card">
-          <span id="metric-avg-rating" class="metric-number">--</span>
           <span class="metric-label">Mean Audience Rating</span>
+          <span id="metric-avg-rating" class="metric-number">--</span>
         </div>
         <div class="metric-card">
-          <span id="metric-avg-votes" class="metric-number">--</span>
           <span class="metric-label">Mean Vote Count</span>
+          <span id="metric-avg-votes" class="metric-number">--</span>
         </div>
         <div class="metric-card">
-          <span id="metric-year-span" class="metric-number">--</span>
           <span class="metric-label">Active Year Span</span>
+          <span id="metric-year-span" class="metric-number">--</span>
         </div>
       </div>
 
       <!-- DASHBOARD CHARTS GRID -->
       <div class="dashboard-grid">
 
-        <!-- TEMPORAL TIMELINE / BRUSH CHART WITH METRIC MODES -->
+        <!-- TEMPORAL TIMELINE / BRUSH CHART -->
         <div class="card-panel grid-col-8">
           <div class="card-header">
             <div>
               <div class="card-title">Temporal Cinema Timeline (1920–2025)</div>
-              <div class="card-subtitle">Drag horizontal 1D brush to filter active timeline window</div>
+              <div class="card-subtitle">Drag horizontal 1D brush along the timeline to filter active year window</div>
             </div>
-            <!-- Timeline Metric Mode Switcher -->
-            <div class="button-group" role="group" aria-label="Timeline Metric Switcher">
-              <button class="btn-sm active" data-metric="volume" aria-pressed="true">Release Volume</button>
-              <button class="btn-sm" data-metric="rating" aria-pressed="false">Mean Rating</button>
-              <button class="btn-sm" data-metric="runtime" aria-pressed="false">Mean Runtime</button>
+            <div class="card-actions">
+              <!-- Timeline Metric Mode Switcher -->
+              <div class="button-group" role="group" aria-label="Timeline Metric Switcher">
+                <button class="btn-sm active" data-metric="volume" aria-pressed="true">Release Volume</button>
+                <button class="btn-sm" data-metric="rating" aria-pressed="false">Mean Rating</button>
+                <button class="btn-sm" data-metric="runtime" aria-pressed="false">Mean Runtime</button>
+              </div>
+              <!-- Export Chart Visual -->
+              <button class="btn-export" id="export-timeline-btn" title="Export this chart as PNG for your report">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>Save Image</span>
+              </button>
             </div>
           </div>
           <div id="timeline-chart-container" style="width: 100%; height: 260px;"></div>
         </div>
 
-        <!-- GENRE BREAKDOWN CHART WITH ERA FILTER -->
+        <!-- GENRE BREAKDOWN CHART -->
         <div class="card-panel grid-col-4">
           <div class="card-header">
             <div>
               <div class="card-title">Top Genre Distribution</div>
-              <div class="card-subtitle">Title counts by primary category</div>
+              <div class="card-subtitle">Title counts by primary category (Click bar to isolate)</div>
+            </div>
+            <div class="card-actions">
+              <button class="btn-export" id="export-breakdown-btn" title="Export this chart as PNG for your report">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>Save Image</span>
+              </button>
             </div>
           </div>
           <div id="breakdown-chart-container" style="width: 100%; height: 260px;"></div>
@@ -160,16 +247,38 @@
           <div class="card-header">
             <div>
               <div class="card-title">Multivariate Rating & Popularity Distribution</div>
-              <div class="card-subtitle">X: Audience Rating (1.0–10.0) | Y: Log Vote Volume | Size: Runtime | Shapes: Circle (Movie) vs Diamond (TV Episode Duration)</div>
+              <div class="card-subtitle">X: Audience Rating (1.0–10.0) | Y: Log Vote Volume | Size: Runtime | Circle:
+                Movie, Diamond: TV Series</div>
             </div>
-            <div class="button-group" role="group" aria-label="Scatterplot Options">
-              <button id="toggle-shapes-btn" class="btn-sm active" aria-pressed="true">Distinct Shapes</button>
-              <button id="toggle-guides-btn" class="btn-sm" aria-pressed="false">Benchmark Guide</button>
+            <div class="card-actions">
+              <div class="button-group" role="group" aria-label="Scatterplot Options">
+                <button id="toggle-shapes-btn" class="btn-sm active" aria-pressed="true">Distinct Shapes</button>
+                <button id="toggle-guides-btn" class="btn-sm" aria-pressed="false">Benchmark Guide</button>
+              </div>
+              <button class="btn-export" id="export-scatterplot-btn" title="Export scatterplot as PNG for your report">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>Save Image</span>
+              </button>
             </div>
           </div>
+
+          <!-- Interactive Genre Legend for Scatterplot -->
+          <div id="genre-legend-bar" class="genre-legend-bar">
+            <span class="legend-title">Genre Filter:</span>
+            <!-- Injected dynamically -->
+          </div>
+
           <div id="scatterplot-container" style="width: 100%; height: 420px;"></div>
-          <div id="scatterplot-sampling-notice" style="font-size: 11px; color: var(--text-dim); margin-top: 8px; text-align: right; display: none;">
-            * Showing top sampled records for rendering performance. Summary metrics use 100% of filtered data.
+          <div id="scatterplot-sampling-notice"
+            style="font-size: 11px; color: var(--text-dim); margin-top: 8px; text-align: right; display: none;">
+            * Showing top sampled records for smooth interactive rendering. Summary metrics compute against 100% of
+            filtered data.
           </div>
         </div>
 
@@ -178,6 +287,28 @@
     </main>
 
   </div>
+
+  <!-- APP FOOTER -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-meta">
+        <span class="footer-topic">IMDb Cinema & TV Evolution Explorer</span>
+        <span class="footer-course">Information Visualization Final Project</span>
+      </div>
+      <div class="footer-team">
+        <span class="team-member">209431667</span>
+        <span class="footer-sep">•</span>
+        <span class="team-member">213764012</span>
+        <span class="footer-sep">•</span>
+        <span class="team-member">212017891</span>
+      </div>
+      <div class="footer-copyright">
+        <span>© 2026 All Rights Reserved • Built with D3 & Vite • <a
+            href="https://github.com/b14ckPanther/imdb-cinema-tv-evolution" target="_blank"
+            rel="noopener noreferrer">GitHub Source</a> • </span>
+      </div>
+    </div>
+  </footer>
 
   <!-- FLOATING D3 TOOLTIP CONTAINER -->
   <div id="d3-tooltip" class="d3-tooltip" role="tooltip" aria-hidden="true"></div>
@@ -199,4 +330,5 @@
   <script type="module" src="/src/main.js"></script>
 
 </body>
+
 </html>

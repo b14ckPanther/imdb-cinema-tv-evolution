@@ -1,7 +1,7 @@
 /**
  * filterPanel.js
  * Controls & Sidebar Form Event Handlers
- * Updated for Stage 5: Dynamic ARIA attributes & keyboard accessibility state synchronization.
+ * Enhanced with Quick Analytical Presets and dynamic state binding.
  */
 
 import { store } from '../state/store.js';
@@ -20,6 +20,7 @@ export class FilterPanel {
     this.resetBtn = document.getElementById('reset-btn');
     this.toggleShapesBtn = document.getElementById('toggle-shapes-btn');
     this.toggleGuidesBtn = document.getElementById('toggle-guides-btn');
+    this.presetButtons = document.querySelectorAll('[data-preset]');
   }
 
   init() {
@@ -27,7 +28,7 @@ export class FilterPanel {
 
     this.populateGenres();
 
-    // Header Format Mode Switcher Tabs with ARIA State Updates
+    // Header Format Mode Switcher Tabs
     const tabs = document.querySelectorAll('.mode-tab');
     tabs.forEach(tab => {
       tab.addEventListener('click', (e) => {
@@ -36,12 +37,20 @@ export class FilterPanel {
       });
     });
 
-    // Timeline Metric Buttons with ARIA State Updates
+    // Timeline Metric Buttons
     const metricBtns = document.querySelectorAll('[data-metric]');
     metricBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         const m = e.target.getAttribute('data-metric');
         store.setFilters({ timelineMetric: m });
+      });
+    });
+
+    // Quick Presets
+    this.presetButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const preset = e.currentTarget.getAttribute('data-preset');
+        this.applyPreset(preset);
       });
     });
 
@@ -64,7 +73,7 @@ export class FilterPanel {
         maxVal = tmp;
       }
       this.yearLabel.textContent = `${minVal} — ${maxVal}`;
-      store.setFilters({ yearMin: minVal, yearMax: maxVal });
+      store.setFilters({ yearMin: minVal, yearMax: maxVal, brushedYears: null });
     };
 
     this.yearMinSlider.addEventListener('input', updateYears);
@@ -100,14 +109,48 @@ export class FilterPanel {
       });
     }
 
-    this.resetBtn.addEventListener('click', () => {
-      this.resetUI();
-      store.resetFilters();
-    });
+    if (this.resetBtn) {
+      this.resetBtn.addEventListener('click', () => {
+        this.resetUI();
+        store.resetFilters();
+      });
+    }
 
     store.subscribe((filteredTitles, filters) => {
       this.syncUI(filters);
     });
+  }
+
+  applyPreset(preset) {
+    if (preset === 'golden-age') {
+      store.setFilters({
+        yearMin: 1930,
+        yearMax: 1959,
+        minVotes: 1000,
+        genreEra: 'classical',
+        brushedYears: null
+      });
+    } else if (preset === 'modern-blockbusters') {
+      store.setFilters({
+        yearMin: 1990,
+        yearMax: 2025,
+        minVotes: 10000,
+        genreEra: 'modern',
+        brushedYears: null
+      });
+    } else if (preset === 'top-rated') {
+      store.setFilters({
+        minVotes: 5000,
+        showCorrelationGuide: true
+      });
+    } else if (preset === 'popular-hits') {
+      store.setFilters({
+        minVotes: 50000,
+        yearMin: 1920,
+        yearMax: 2025,
+        brushedYears: null
+      });
+    }
   }
 
   populateGenres() {

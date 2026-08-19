@@ -26,7 +26,7 @@ export class D3Tooltip {
         <span class="tooltip-key">Format:</span>
         <span class="tooltip-val">${formatName}</span>
         <span class="tooltip-key">Rating:</span>
-        <span class="tooltip-val" style="color: #f59e0b;">★ ${titleObj.r.toFixed(1)} / 10</span>
+        <span class="tooltip-val" style="color: var(--accent-warning); font-weight: 700;">${titleObj.r.toFixed(1)} / 10</span>
         <span class="tooltip-key">Votes:</span>
         <span class="tooltip-val">${titleObj.v.toLocaleString()}</span>
         <span class="tooltip-key">${runtimeLabel}</span>

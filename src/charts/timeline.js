@@ -1,7 +1,7 @@
 /**
  * timeline.js
  * D3 Temporal Cinema Timeline Chart with Multi-Metric Toggle & 1D Brush
- * Supports: Release Volume (Q1/Q2), Average Rating (Q1), Average Runtime (Q2).
+ * Enhanced with dynamic Light/Dark mode colors and smooth visual aesthetic.
  */
 
 import * as d3 from 'd3';
@@ -13,7 +13,7 @@ export class TimelineChart {
     this.svg = null;
     this.width = 0;
     this.height = 0;
-    this.margin = { top: 15, right: 20, bottom: 35, left: 45 };
+    this.margin = { top: 15, right: 20, bottom: 35, left: 50 };
   }
 
   init() {
@@ -28,6 +28,10 @@ export class TimelineChart {
   render() {
     if (!this.container) return;
     this.container.innerHTML = '';
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const axisTextColor = isDark ? '#9ca3af' : '#475569';
+    const axisLineColor = isDark ? 'rgba(255, 255, 255, 0.12)' : '#cbd5e1';
 
     const rect = this.container.getBoundingClientRect();
     this.width = rect.width - this.margin.left - this.margin.right;
@@ -98,23 +102,25 @@ export class TimelineChart {
       .attr('class', 'axis x-axis')
       .call(xAxis)
       .selectAll('text')
-      .attr('fill', '#9ca3af')
-      .attr('font-size', '11px');
+      .attr('fill', axisTextColor)
+      .attr('font-size', '11px')
+      .attr('font-weight', '500');
 
     this.svg.append('g')
       .attr('class', 'axis y-axis')
       .call(yAxis)
       .selectAll('text')
-      .attr('fill', '#9ca3af')
-      .attr('font-size', '11px');
+      .attr('fill', axisTextColor)
+      .attr('font-size', '11px')
+      .attr('font-weight', '500');
 
     this.svg.selectAll('.domain, .tick line')
-      .attr('stroke', 'rgba(255, 255, 255, 0.1)');
+      .attr('stroke', axisLineColor);
 
     // Color gradient based on metric
-    let gradientColor = '#6366f1';
-    if (metricMode === 'rating') gradientColor = '#f59e0b';
-    if (metricMode === 'runtime') gradientColor = '#10b981';
+    let gradientColor = '#4f46e5'; // Indigo
+    if (metricMode === 'rating') gradientColor = '#d97706'; // Amber
+    if (metricMode === 'runtime') gradientColor = '#059669'; // Emerald
 
     const gradientId = `timeline-area-gradient-${metricMode}`;
     const defs = this.svg.append('defs');
@@ -126,12 +132,12 @@ export class TimelineChart {
     areaGradient.append('stop')
       .attr('offset', '0%')
       .attr('stop-color', gradientColor)
-      .attr('stop-opacity', 0.45);
+      .attr('stop-opacity', isDark ? 0.45 : 0.35);
 
     areaGradient.append('stop')
       .attr('offset', '100%')
       .attr('stop-color', gradientColor)
-      .attr('stop-opacity', 0.05);
+      .attr('stop-opacity', 0.02);
 
     // Area & Line Generators
     const area = d3.area()
@@ -154,7 +160,7 @@ export class TimelineChart {
       .datum(data)
       .attr('fill', 'none')
       .attr('stroke', gradientColor)
-      .attr('stroke-width', 2)
+      .attr('stroke-width', 2.2)
       .attr('d', line);
 
     // D3 Brush
@@ -175,10 +181,14 @@ export class TimelineChart {
       .attr('class', 'brush')
       .call(brush);
 
+    const brushFill = isDark ? 'rgba(99, 102, 241, 0.25)' : 'rgba(79, 70, 229, 0.15)';
+    const brushStroke = isDark ? '#818cf8' : '#4f46e5';
+
     this.svg.selectAll('.selection')
-      .attr('fill', 'rgba(99, 102, 241, 0.25)')
-      .attr('stroke', '#818cf8')
-      .attr('stroke-width', 1.5);
+      .attr('fill', brushFill)
+      .attr('stroke', brushStroke)
+      .attr('stroke-width', 1.5)
+      .attr('rx', 3);
   }
 
   update() {
